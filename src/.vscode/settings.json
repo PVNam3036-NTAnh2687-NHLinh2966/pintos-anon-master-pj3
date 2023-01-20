@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "directory.h": "c",
+        "thread.h": "c",
+        "synch.h": "c",
+        "process.h": "c",
+        "inode.h": "c",
+        "filesys.h": "c"
+    }
+}

@@ -1,0 +1,26 @@
+FAIL
+Kernel panic in run: PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002b0a7 0xc002f501 0xc002f60c 0xc0022312 0xc0022587 0xc0029c16 0xc0031aa3 0xc0030d03 0xc002fe32 0xc002f912 0xc002fa4b 0xc0022312 0xc0022587 0x804a190 0x80480da 0x8048783 0x80487bd
+Translation of call stack:
+In kernel.o:
+0xc002b0a7: load (...../userprog/process.c:347)
+0xc002f501: swap_init (.../build/../../vm/swap.c:33)
+0xc002f60c: swap_in (.../build/../../vm/swap.c:56)
+0xc0022312: intr9d_stub (threads/intr-stubs.S:?)
+0xc0022587: intrcd_stub (threads/intr-stubs.S:?)
+0xc0029c16: bitmap_test (...p.c:202 (discriminator 1))
+0xc0031aa3: intrff_stub (threads/intr-stubs.S:?)
+0xc0030d03: intrff_stub (threads/intr-stubs.S:?)
+0xc002fe32: intrff_stub (threads/intr-stubs.S:?)
+0xc002f912: intrff_stub (threads/intr-stubs.S:?)
+0xc002fa4b: intrff_stub (threads/intr-stubs.S:?)
+0xc0022312: intr9d_stub (threads/intr-stubs.S:?)
+0xc0022587: intrcd_stub (threads/intr-stubs.S:?)
+In tests/vm/pt-write-code2:
+0x0804a190: read (...../lib/user/syscall.c:117)
+0x080480da: test_main (...s/vm/pt-write-code-2.c:14)
+0x08048783: main (...ild/../../tests/main.c:13)
+0x080487bd: _start (.../../../lib/user/entry.c:9)
+Translations of user virtual addresses above are based on a guess at
+the binary to use.  If this guess is incorrect, then those
+translations will be misleading.
